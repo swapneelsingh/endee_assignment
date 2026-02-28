@@ -30,3 +30,41 @@ frontend/*
 
 # DS Store
 .DS_Store
+
+
+# =========================
+# Python & Virtual Environments
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# =========================
+# Security / API Keys
+# =========================
+.env
+*.env
+
+# =========================
+# Machine Learning / AI Caches
+# =========================
+# Ignores downloaded sentence-transformer models if saved locally
+.huggingface/
+*.safetensors
+*.bin
+
+# =========================
+# OS & IDE Files
+# =========================
+.vscode/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Docker & Database Data
+# =========================
+# Ignores local database mounting directories to prevent committing massive DB files
+endee-data/
