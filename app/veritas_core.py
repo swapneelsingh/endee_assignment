@@ -53,12 +53,33 @@ def insert_fact_into_endee(fact_id, text):
     if response.status_code != 200:
         print(f"--> Insert Fact Raw Body: {response.text}")
 
+# if __name__ == "__main__":
+#     print("\n1. Setting up Endee Index (384-dim)...")
+#     setup_endee_index()
+
+#     print("\n2. Inserting a verified fact...")
+#     test_fact = "Bennett University is located in Greater Noida, Uttar Pradesh."
+#     insert_fact_into_endee(fact_id=1, text=test_fact)
+    
+#     print("\nPipeline Test Complete.")
+
 if __name__ == "__main__":
     print("\n1. Setting up Endee Index (384-dim)...")
     setup_endee_index()
 
-    print("\n2. Inserting a verified fact...")
-    test_fact = "Bennett University is located in Greater Noida, Uttar Pradesh."
-    insert_fact_into_endee(fact_id=1, text=test_fact)
+    print("\n2. Populating Knowledge Base...")
+    # A mix of facts, including some MERN stack and tech trivia!
+    knowledge_base = [
+        "Bennett University is located in Greater Noida, Uttar Pradesh.",
+        "The MERN stack consists of MongoDB, Express.js, React, and Node.js.",
+        "Docker uses OS-level virtualization to deliver software in packages called containers.",
+        "Python was created by Guido van Rossum and first released in 1991.",
+        "Retrieval-Augmented Generation (RAG) grounds Large Language Models on external knowledge bases."
+    ]
+
+    for index, fact in enumerate(knowledge_base):
+        # We use index + 1 so our IDs start at 1, 2, 3...
+        insert_fact_into_endee(fact_id=index + 1, text=fact)
+        print(f"Inserted Fact {index + 1}...")
     
-    print("\nPipeline Test Complete.")
+    print("\nPipeline Test & Seeding Complete.")
