@@ -6,7 +6,6 @@ from sentence_transformers import SentenceTransformer
 load_dotenv()
 
 ENDEE_BASE_URL = "http://localhost:8080/api/v1"
-# NEW INDEX NAME: Bypasses the old 768-dim index completely
 INDEX_NAME = "veritas_local_384" 
 EMBEDDING_DIMENSION = 384  
 
@@ -40,7 +39,7 @@ def insert_fact_into_endee(fact_id, text):
     vector = get_embedding(text)
     url = f"{ENDEE_BASE_URL}/index/{INDEX_NAME}/vector/insert"
     
-    # CHANGED: Flattened the JSON since the endpoint is singular ("vector/insert")
+    # Flattened the JSON since the endpoint is singular ("vector/insert")
     payload = {
         "id": fact_id,
         "vector": vector,
